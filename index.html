@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brightside English — школа англійської</title>
+<meta name="description" content="Школа англійської для дітей, підлітків і дорослих. Малі групи, живе спілкування, підготовка до НМТ. Перший урок безкоштовно.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#12233f; --ink:#26364f; --sun:#ffc93c; --sky:#e8f1ff; --line:#d5e0f0; --white:#fff; --bg:#f7f9fc;
+  --display:'Unbounded','Onest',system-ui,sans-serif; --body:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.6;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);color:var(--navy);line-height:1.2;font-weight:600}
+h2{font-size:clamp(1.5rem,3.4vw,2.1rem);margin-bottom:12px}
+
+/* header */
+header{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--display);font-weight:600;font-size:1.05rem;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:14px;height:14px;background:var(--sun);border-radius:50%;box-shadow:0 0 0 4px var(--sky)}
+nav{display:flex;gap:26px;align-items:center;font-size:.95rem}
+nav a{text-decoration:none;font-weight:500}
+nav a:hover{color:var(--navy);text-decoration:underline;text-underline-offset:5px}
+.btn{display:inline-block;background:var(--sun);color:var(--navy);font:600 1rem var(--body);padding:14px 26px;border-radius:999px;border:0;text-decoration:none;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.sm{padding:10px 20px;font-size:.92rem}
+@media(max-width:760px){nav a:not(.btn){display:none}}
+
+/* hero */
+.hero{background:var(--navy);color:#dbe6f7;padding:72px 0 80px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{color:var(--white);font-size:clamp(1.9rem,4.6vw,3.1rem);margin-bottom:20px}
+.hero p{max-width:46ch;font-size:1.1rem;margin-bottom:30px}
+.hero .note{font-size:.9rem;margin:16px 0 0;color:#9fb4d3}
+.chat{background:var(--white);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:12px;color:var(--ink);box-shadow:0 24px 60px rgba(0,0,0,.3)}
+.chat .who{font-size:.8rem;color:#6b7c96}
+.msg{max-width:88%;padding:11px 15px;border-radius:16px;font-size:.98rem;line-height:1.45;opacity:0;transform:translateY(8px);animation:pop .5s forwards}
+.msg.t{background:var(--sky);border-bottom-left-radius:4px}
+.msg.s{background:var(--navy);color:var(--white);align-self:flex-end;border-bottom-right-radius:4px}
+.msg s{text-decoration-color:var(--sun);text-decoration-thickness:2px}
+.msg mark{background:var(--sun);color:var(--navy);padding:0 4px;border-radius:4px;font-weight:600}
+.msg:nth-of-type(1){animation-delay:.3s}.msg:nth-of-type(2){animation-delay:1.3s}.msg:nth-of-type(3){animation-delay:2.4s}.msg:nth-of-type(4){animation-delay:3.4s}
+@keyframes pop{to{opacity:1;transform:none}}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.msg{animation:none;opacity:1;transform:none}.btn{transition:none}html{scroll-behavior:auto}}
+
+/* sections */
+section{padding:76px 0}
+.lead{max-width:56ch;margin-bottom:36px}
+
+/* courses as list rows */
+.courses{background:var(--white);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.row{display:grid;grid-template-columns:1.1fr 2fr auto;gap:24px;align-items:center;padding:24px 28px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row h3{font-size:1.05rem}
+.row small{display:block;font-family:var(--body);font-weight:400;font-size:.88rem;color:#5d6e88;margin-top:4px}
+.price{font-weight:600;color:var(--navy);white-space:nowrap}
+.row:hover{background:var(--sky)}
+@media(max-width:760px){.row{grid-template-columns:1fr;gap:6px}}
+
+/* approach */
+.approach{background:var(--sky)}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.cols h3{font-size:1.05rem;margin-bottom:8px}
+@media(max-width:760px){.cols{grid-template-columns:1fr;gap:26px}}
+
+/* teachers */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.person{display:flex;gap:16px;align-items:flex-start}
+.av{flex:none;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font:600 1.15rem var(--display);color:var(--navy)}
+.person h3{font-size:1rem;margin-bottom:2px}
+.person p{font-size:.93rem}
+@media(max-width:860px){.team{grid-template-columns:1fr}}
+
+/* reviews */
+.reviews{background:var(--white);border-block:1px solid var(--line)}
+.q{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+blockquote{font-size:1.1rem;color:var(--navy)}
+blockquote footer{margin-top:12px;font-size:.9rem;color:#5d6e88}
+@media(max-width:760px){.q{grid-template-columns:1fr;gap:30px}}
+
+/* signup */
+.signup .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+form{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:28px;display:grid;gap:16px}
+label{font-weight:500;font-size:.93rem;display:grid;gap:6px}
+input,select{font:inherit;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink)}
+input:focus,select:focus{outline:none;border-color:var(--navy)}
+.err{color:#b3261e;font-size:.85rem;min-height:1.1em}
+.ok{background:var(--sky);border-radius:12px;padding:16px;color:var(--navy);display:none}
+@media(max-width:860px){.signup .wrap{grid-template-columns:1fr;gap:30px}}
+
+footer.main{background:var(--navy);color:#b9c8e0;padding:36px 0;font-size:.93rem}
+footer.main .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+footer.main a{text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top"><i></i>Brightside English</a>
+    <nav aria-label="Головне меню">
+      <a href="#courses">Курси</a>
+      <a href="#approach">Як ми вчимо</a>
+      <a href="#teachers">Викладачі</a>
+      <a class="btn sm" href="#signup">Пробний урок</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Англійська, якою ви справді заговорите</h1>
+      <p>Групи до 6 людей, викладачі, які виправляють мʼяко і по ділу, і заняття, де 70% часу говорите саме ви. Для дітей, підлітків і дорослих.</p>
+      <a class="btn" href="#signup">Записатися на безкоштовний урок</a>
+      <p class="note">Пробний урок 40 хвилин, без зобовʼязань.</p>
+    </div>
+    <div class="chat" aria-label="Приклад діалогу на уроці">
+      <div class="who">Фрагмент уроку, рівень A2</div>
+      <div class="msg t">What did you do at the weekend?</div>
+      <div class="msg s">I <s>go</s> to the mountains with my friends.</div>
+      <div class="msg t">Nice! Let's check the verb: I <mark>went</mark> to the mountains. What did you see there?</div>
+      <div class="msg s">I went… we saw a very big lake!</div>
+    </div>
+  </div>
+</div>
+
+<section id="courses">
+  <div class="wrap">
+    <h2>Курси</h2>
+    <p class="lead">Рівень визначаємо на пробному уроці, тож групу підберемо без тестів на папері.</p>
+    <div class="courses">
+      <div class="row">
+        <h3>Діти 6–9 років<small>Ігровий формат</small></h3>
+        <p>Вивчаємо слова через ігри, пісні та короткі історії. Батьки щотижня бачать, що вивчила дитина.</p>
+        <span class="price">від 1 200 грн/міс</span>
+      </div>
+      <div class="row">
+        <h3>Підлітки 10–15 років<small>Шкільна програма + розмовна</small></h3>
+        <p>Підтягуємо школу і додаємо живу мову: проєкти, обговорення, відео.</p>
+        <span class="price">від 1 400 грн/міс</span>
+      </div>
+      <div class="row">
+        <h3>Дорослі<small>A1–C1, вечірні групи</small></h3>
+        <p>Для роботи, переїзду чи подорожей. Фокус на розмові та на тому, що потрібно саме вам.</p>
+        <span class="price">від 1 600 грн/міс</span>
+      </div>
+      <div class="row">
+        <h3>Підготовка до НМТ<small>10–11 класи</small></h3>
+        <p>Розбираємо структуру тесту, типові завдання та помилки. Регулярні пробні варіанти з аналізом.</p>
+        <span class="price">від 1 800 грн/міс</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="approach" id="approach">
+  <div class="wrap">
+    <h2>Як проходять заняття</h2>
+    <p class="lead">Мова оживає тоді, коли нею говорять. Тому в нас немає уроків, де вчитель говорить сорок хвилин поспіль.</p>
+    <div class="cols">
+      <div><h3>Малі групи</h3><p>До 6 людей: кожен встигає говорити, а викладач чує кожного.</p></div>
+      <div><h3>Виправлення без сорому</h3><p>Помилки розбираємо одразу і спокійно, як у діалозі вище, щоб вони не закріплювались.</p></div>
+      <div><h3>Домашка на 15 хвилин</h3><p>Короткі завдання в застосунку. Прогрес видно і вам, і викладачу.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="teachers">
+  <div class="wrap">
+    <h2>Викладачі</h2>
+    <p class="lead">Кожен проходить пробне заняття з нашим методистом, перш ніж отримати групу.</p>
+    <div class="team">
+      <div class="person"><div class="av" style="background:var(--sun)">ОК</div><div><h3>Олена Коваль</h3><p>Діти і підлітки. Сертифікат TEFL, 8 років досвіду.</p></div></div>
+      <div class="person"><div class="av" style="background:#bcd4f7">ДМ</div><div><h3>Дмитро Мельник</h3><p>Дорослі та НМТ. Жив і працював у Польщі та Ірландії.</p></div></div>
+      <div class="person"><div class="av" style="background:#ffe08a">ІП</div><div><h3>Ірина Парубій</h3><p>Підготовка до іспитів. Випускники з високими балами НМТ.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap q">
+    <blockquote>«Донька раніше мовчала на уроках у школі, а тут за пів року почала сама розповідати про свій день англійською.»<footer>Наталія, мама Софії, 8 років</footer></blockquote>
+    <blockquote>«Нарешті перестав боятися говорити на співбесідах. Групи маленькі, і ніхто не відсиджується.»<footer>Андрій, 27 років, QA-інженер</footer></blockquote>
+  </div>
+</section>
+
+<section class="signup" id="signup">
+  <div class="wrap">
+    <div>
+      <h2>Запишіться на пробний урок</h2>
+      <p class="lead">Залиште контакти, і ми передзвонимо протягом робочого дня, щоб підібрати зручний час і групу.</p>
+      <p>Телефон: +380 00 000 00 00<br>Instagram: @brightside.english<br>Вул. Прикладна, 1, Житомир</p>
+    </div>
+    <form id="lead" novalidate>
+      <label>Ваше імʼя<input name="name" autocomplete="name" required><span class="err" data-for="name"></span></label>
+      <label>Телефон<input name="phone" type="tel" autocomplete="tel" placeholder="+380…" required><span class="err" data-for="phone"></span></label>
+      <label>Курс
+        <select name="course">
+          <option>Діти 6–9 років</option><option>Підлітки 10–15 років</option><option>Дорослі</option><option>Підготовка до НМТ</option>
+        </select>
+      </label>
+      <button class="btn" type="submit">Записатися на безкоштовний урок</button>
+      <div class="ok" id="ok" role="status"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="main">
+  <div class="wrap"><span>© 2026 Brightside English</span><a href="#top">Нагору</a></div>
+</footer>
+
+<script>
+// Demo form: validates and shows a message. To make it real, send `data` with fetch() to your FastAPI endpoint (e.g. POST /api/leads).
+const form = document.getElementById('lead');
+const ok = document.getElementById('ok');
+const setErr = (n, t) => form.querySelector('[data-for="' + n + '"]').textContent = t;
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(form));
+  const name = data.name.trim();
+  const digits = data.phone.replace(/\D/g, '');
+  setErr('name', name ? '' : 'Введіть імʼя');
+  setErr('phone', digits.length >= 10 ? '' : 'Введіть номер телефону повністю');
+  if (!name || digits.length < 10) return;
+  ok.textContent = 'Дякуємо, ' + name + '! Передзвонимо протягом робочого дня, щоб узгодити час пробного уроку.';
+  ok.style.display = 'block';
+  form.reset();
+});
+</script>
+</body>
+</html>
